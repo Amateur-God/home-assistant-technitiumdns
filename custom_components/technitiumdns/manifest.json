@@ -11,5 +11,23 @@
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/Amateur-God/home-assistant-Technitiumdns/issues",
   "requirements": ["aiohttp>=3.9.0"],
-  "version": "2.3.0"
+  "version": "2.3.0",
+  "resources": [
+    {
+      "type": "module",
+      "url": "/hacsfiles/technitiumdns/top_clients_card.js"
+    },
+    {
+      "type": "module",
+      "url": "/hacsfiles/technitiumdns/top_domains_card.js"
+    },
+    {
+      "type": "module",
+      "url": "/hacsfiles/technitiumdns/top_blocked_domains_card.js"
+    },
+    {
+      "type": "module",
+      "url": "/hacsfiles/technitiumdns/statistics_card.js"
+    }
+  ]
 }

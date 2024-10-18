@@ -1,5 +1,6 @@
 from datetime import timedelta
 import logging
+
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
@@ -8,49 +9,15 @@ from homeassistant.helpers.update_coordinator import (
 )
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.exceptions import ConfigEntryNotReady
+
 from .const import DOMAIN, SENSOR_TYPES
 from .api import TechnitiumDNSApi
-import os
-import shutil
 
 _LOGGER = logging.getLogger(__name__)
 
 SCAN_INTERVAL = timedelta(minutes=1)
 
 async def async_setup_entry(hass, entry, async_add_entities):
-    # Define the path for custom cards in the integration directory
-    integration_dir = hass.config.path("custom_components/technitiumdns")
-    www_dir = hass.config.path("www")
-
-    # List of JavaScript files for custom Lovelace cards
-    card_files = [
-        "top_clients_card.js",
-        "top_domains_card.js",
-        "top_blocked_domains_card.js",
-        "statistics_card.js"
-    ]
-
-    # Copy each JavaScript file to the www directory
-    for card_file in card_files:
-        src = os.path.join(integration_dir, card_file)
-        dst = os.path.join(www_dir, card_file)
-        if not os.path.exists(dst):  # Only copy if it doesn't exist
-            try:
-                shutil.copyfile(src, dst)
-                _LOGGER.info(f"Copied {card_file} to {dst}")
-            except Exception as e:
-                _LOGGER.error(f"Failed to copy {card_file} to {dst}: {e}")
-
-    # Register Lovelace resources for the custom cards
-    for card_file in card_files:
-        resource_url = f"/local/{card_file}"
-        try:
-            await hass.services.async_call(
-                "lovelace/resources", "add", {"url": resource_url, "type": "module"}
-            )
-            _LOGGER.info(f"Registered Lovelace resource: {resource_url}")
-        except Exception as e:
-            _LOGGER.error(f"Failed to register Lovelace resource {resource_url}: {e}")
 
     """Set up the TechnitiumDNS sensor based on a config entry."""
     try:
@@ -69,7 +36,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
         async_add_entities(sensors, True)
     except Exception as e:
         _LOGGER.error("Could not initialize TechnitiumDNS: %s", e)
-        raise ConfigEntryNotReady from e
+        raise ConfigEntryNotReady
 
 class TechnitiumDNSCoordinator(DataUpdateCoordinator):
     """Class to manage fetching TechnitiumDNS data."""
