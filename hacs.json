@@ -8,9 +8,9 @@
   "filename": "custom_components/technitiumdns/__init__.py",
   "frontend": true,
   "files": [
-    "www/technitiumdns/top_clients_card.js",
-    "www/technitiumdns/top_domains_card.js",
-    "www/technitiumdns/top_blocked_domains_card.js",
-    "www/technitiumdns/statistics_card.js"
+    "www/communit/technitiumdns/top_clients_card.js",
+    "www/communit/technitiumdns/top_domains_card.js",
+    "www/communit/technitiumdns/top_blocked_domains_card.js",
+    "www/communit/technitiumdns/statistics_card.js"
   ]
 }
