@@ -5,12 +5,5 @@
   "iot_class": "Local Polling",
   "render_readme": true,
   "zip_release": false,
-  "filename": "custom_components/technitiumdns/__init__.py",
-  "frontend": true,
-  "files": [
-    "www/community/technitiumdns/top_clients_card.js",
-    "www/community/technitiumdns/top_domains_card.js",
-    "www/community/technitiumdns/top_blocked_domains_card.js",
-    "www/community/technitiumdns/statistics_card.js"
-  ]
+  "filename": "custom_components/technitiumdns/__init__.py"
 }
