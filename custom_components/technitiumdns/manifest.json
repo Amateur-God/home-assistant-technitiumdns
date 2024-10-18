@@ -15,23 +15,19 @@
   "resources": [
     {
       "type": "module",
-      "url": "/local/statistics_card.js",
-      "path": "custom_components/technitiumdns/statistics_card.js"
+      "url": "/hacsfiles/technitiumdns/top_clients_card.js"
     },
     {
       "type": "module",
-      "url": "/local/top_clients_card.js",
-      "path": "custom_components/technitiumdns/top_clients_card.js"
+      "url": "/hacsfiles/technitiumdns/top_domains_card.js"
     },
     {
       "type": "module",
-      "url": "/local/top_domains_card.js",
-      "path": "custom_components/technitiumdns/top_domains_card.js"
+      "url": "/hacsfiles/technitiumdns/top_blocked_domains_card.js"
     },
     {
       "type": "module",
-      "url": "/local/top_blocked_domains_card.js",
-      "path": "custom_components/technitiumdns/top_blocked_domains_card.js"
+      "url": "/hacsfiles/technitiumdns/statistics_card.js"
     }
   ]
 }
